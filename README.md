@@ -1,4 +1,5 @@
-# ☝🏼 React Native Permissions
+# ☝🏼 React Native Contacts Permissions
+### original repo https://github.com/yonahforst/react-native-permissions
 
 [![npm version](https://badge.fury.io/js/react-native-permissions.svg)](https://badge.fury.io/js/react-native-permissions)
 [![npm](https://img.shields.io/npm/dt/react-native-permissions.svg)](https://www.npmjs.org/package/react-native-permissions)
@@ -6,7 +7,8 @@
 ![MIT](https://img.shields.io/dub/l/vibe-d.svg)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Request user permissions from React Native, iOS + Android
+Request user contacts camera photo notification permissions from React Native, iOS + Android
+Because of Apple Reriew, delete unused premissions
 
 | Version | React Native Support |
 | ------- | -------------------- |
@@ -39,15 +41,6 @@ _📌 Don't forget to add permissions to `AndroidManifest.xml` for android and
 
 ### Additional iOS setup
 
-#### Using cocoaPods
-
-Update the following line with your path to `node_modules/` and add it to your
-podfile:
-
-```ruby
-pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
-```
-
 #### Using react-native link
 
 ```sh
@@ -75,30 +68,30 @@ import Permissions from 'react-native-permissions'
 export default class extends React.Component {
   //...
 
-  // Check the status of a single permission
+  // Check the status of a single permission(contacts permission)
   componentDidMount() {
-    Permissions.check('photo').then(response => {
+    Permissions.check('contacts').then(response => {
       // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
       this.setState({ photoPermission: response })
     })
   }
 
-  // Request permission to access photos
+  // Request permission to access contacts
   _requestPermission = () => {
-    Permissions.request('photo').then(response => {
+    Permissions.request('contacts').then(response => {
       // Returns once the user has chosen to 'allow' or to 'not allow' access
       // Response is one of: 'authorized', 'denied', 'restricted', or 'undetermined'
-      this.setState({ photoPermission: response })
+      this.setState({ contactsPermission: response })
     })
   }
 
   // Check the status of multiple permissions
   _checkCameraAndPhotos = () => {
-    Permissions.checkMultiple(['camera', 'photo']).then(response => {
+    Permissions.checkMultiple(['camera', 'contacts']).then(response => {
       //response is an object mapping type to permission
       this.setState({
         cameraPermission: response.camera,
-        photoPermission: response.photo,
+        contactsPermission: response.contacts,
       })
     })
   }
