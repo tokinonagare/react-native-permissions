@@ -1,6 +1,6 @@
 {
   "name": "react-native-contacts-permissions",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Check user contacts permissions in React Native",
   "author": "tokinonagare <timemahou@gmail.com>",
   "homepage": "https://github.com/tokinonagare/react-native-permissions",
