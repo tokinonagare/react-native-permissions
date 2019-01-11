@@ -108,6 +108,9 @@ RCT_REMAP_METHOD(getPermissionStatus, getPermissionStatus:(RNPType)type json:(id
         case RNPTypeCamera:
             status = [RNPAudioVideo getStatus:@"video"];
             break;
+        case RNPTypeMicrophone:
+            status = [RNPAudioVideo getStatus:@"audio"];
+            break;
         case RNPTypePhoto:
             status = [RNPPhoto getStatus];
             break;
@@ -129,6 +132,8 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
     switch (type) {
         case RNPTypeCamera:
             return [RNPAudioVideo request:@"video" completionHandler:resolve];
+        case RNPTypeMicrophone:
+            return [RNPAudioVideo request:@"audio" completionHandler:resolve];
         case RNPTypePhoto:
             return [RNPPhoto request:resolve];
         case RNPTypeContacts:
