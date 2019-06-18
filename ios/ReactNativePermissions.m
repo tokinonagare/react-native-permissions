@@ -34,7 +34,7 @@
   #import "RCTEventDispatcher.h"
 #endif
 
-
+#import "RNPLocation.h"
 #import "RNPNotification.h"
 #import "RNPAudioVideo.h"
 #import "RNPPhoto.h"
@@ -42,6 +42,7 @@
 
 
 @interface ReactNativePermissions()
+@property (strong, nonatomic) RNPLocation *locationMgr;
 @property (strong, nonatomic) RNPNotification *notificationMgr;
 @end
 
@@ -105,6 +106,11 @@ RCT_REMAP_METHOD(getPermissionStatus, getPermissionStatus:(RNPType)type json:(id
 
     switch (type) {
 
+        case RNPTypeLocation: {
+            NSString *locationPermissionType = [RCTConvert NSString:json];
+            status = [RNPLocation getStatusForType:locationPermissionType];
+            break;
+        }
         case RNPTypeCamera:
             status = [RNPAudioVideo getStatus:@"video"];
             break;
@@ -130,6 +136,8 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
     NSString *status;
 
     switch (type) {
+        case RNPTypeLocation:
+            return [self requestLocation:json resolve:resolve];
         case RNPTypeCamera:
             return [RNPAudioVideo request:@"video" completionHandler:resolve];
         case RNPTypeMicrophone:
@@ -140,9 +148,20 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
             return [RNPContacts request:resolve];
         case RNPTypeNotification:
             return [self requestNotification:json resolve:resolve];
+        default:
+            break;
     }
+}
 
-
+- (void) requestLocation:(id)json resolve:(RCTPromiseResolveBlock)resolve
+{
+    if (self.locationMgr == nil) {
+        self.locationMgr = [[RNPLocation alloc] init];
+    }
+    
+    NSString *type = [RCTConvert NSString:json];
+    
+    [self.locationMgr request:type completionHandler:resolve];
 }
 
 - (void) requestNotification:(id)json resolve:(RCTPromiseResolveBlock)resolve
@@ -165,7 +184,6 @@ RCT_REMAP_METHOD(requestPermission, permissionType:(RNPType)type json:(id)json r
     }
 
     [self.notificationMgr request:types completionHandler:resolve];
-
 }
 
 @end

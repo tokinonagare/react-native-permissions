@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		488FE2A2200BCED100E05AB0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488FE2A1200BCEC900E05AB0 /* MediaPlayer.framework */; };
+		4A0BD03722B8925600247116 /* RNPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0BD03522B8925600247116 /* RNPLocation.m */; };
 		669581F71FE4416B008596CD /* RCTConvert+RNPStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 669581F41FE4416B008596CD /* RCTConvert+RNPStatus.m */; };
 		669581F81FE4416B008596CD /* ReactNativePermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 669581F51FE4416B008596CD /* ReactNativePermissions.m */; };
 		669582111FE441A8008596CD /* RNPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 669582011FE441A7008596CD /* RNPNotification.m */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		488FE2A1200BCEC900E05AB0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		4A0BD03522B8925600247116 /* RNPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPLocation.m; sourceTree = "<group>"; };
+		4A0BD03622B8925600247116 /* RNPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPLocation.h; sourceTree = "<group>"; };
 		669581F31FE4416B008596CD /* ReactNativePermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNativePermissions.h; sourceTree = "<group>"; };
 		669581F41FE4416B008596CD /* RCTConvert+RNPStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+RNPStatus.m"; sourceTree = "<group>"; };
 		669581F51FE4416B008596CD /* ReactNativePermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativePermissions.m; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 		669581FA1FE44191008596CD /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				4A0BD03622B8925600247116 /* RNPLocation.h */,
+				4A0BD03522B8925600247116 /* RNPLocation.m */,
 				669582041FE441A7008596CD /* RNPAudioVideo.h */,
 				669582071FE441A7008596CD /* RNPAudioVideo.m */,
 				669581FB1FE441A7008596CD /* RNPContacts.h */,
@@ -140,6 +145,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 9D23B3461C767B80008B4819;
@@ -158,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				669582111FE441A8008596CD /* RNPNotification.m in Sources */,
+				4A0BD03722B8925600247116 /* RNPLocation.m in Sources */,
 				669581F71FE4416B008596CD /* RCTConvert+RNPStatus.m in Sources */,
 				669582141FE441A8008596CD /* RNPContacts.m in Sources */,
 				669582131FE441A8008596CD /* RNPAudioVideo.m in Sources */,
